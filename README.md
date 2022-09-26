@@ -15,10 +15,16 @@ When creating a project it is important to think about organization of your code
     -added onClick/handleClick to mark chosen square with an "X".
 
 - As a user, my partner can click on a square after me and see their mark.
-    -
+    - make two players playerOne and playerTwo
+    - set playerOne to true and playerTwo to false
+    - After setting board, change playerOne to false and playerTwo to true
+    - use conditional statement to seperate logic
+    - use ternary operator to set the board with 'X' or 'O'
 
 
 - As a user, I can't click on a square that has already been marked.
+
+
 - As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
 - As a user, I can't continue playing the game after the game has been won.
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.

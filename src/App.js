@@ -5,23 +5,46 @@ import './App.css'
 const App = () => {
   const [square, setSquare] = useState(Array(9).fill(null))
 
-  const [playerOne, setPlayerOne] = useState(true)
-  const [playerTwo, setPlayerTwo] = useState(true)
+  let [playerOne, setPlayerOne] = useState(true)
+  let [playerTwo, setPlayerTwo] = useState(false)
+  
+  let [squareStyle,setSquareStyle] = useState({
+    ifClicked : false
+
+  })
+
+  
 
   const handleGamePlay = (clickSquare) => {
     let newBoard = [...square]
-      console.log(playerOne, playerTwo, "test line 0")
-    if (playerTwo) {
-      newBoard[clickSquare] = false ? "X" : "O"
+    //console.log(playerOne, playerTwo, "test line 0")
+    if (playerOne) {
+      newBoard[clickSquare] = true ? "X" : "O"
       setSquare(newBoard)
-      setPlayerOne(playerOne = false)
-      setPlayerTwo(playerTwo = true)
-      console.log(playerOne, playerTwo, "test line 1")
+      playerOne = false
+      setPlayerOne(playerOne)
+      playerTwo = true
+      setPlayerTwo(playerTwo)
+
+      //console.log(playerOne, playerTwo, "test line 1")
     } 
-    // else {
-    //   newBoard[clickSquare] = true ? "O" : "X"
-    // }
+    else if (playerTwo){
+      // console.log(playerOne, playerTwo,'play two')
+      newBoard[clickSquare] = true ? "O" : "X"
+      setSquare(newBoard)
+      playerOne = true
+      setPlayerOne(playerOne)
+      playerTwo = false
+      setPlayerTwo(playerTwo)
+    }
+    else {
+     return 'error'
+    }
+
+    //console.log(squareStyle.ifClicked)
   }
+
+
 
   return (
     <>
@@ -35,6 +58,8 @@ const App = () => {
             index={index}
             handleGamePlay={handleGamePlay}
             key={index}
+            squareStyle = {squareStyle}
+
 
           />
         })}
