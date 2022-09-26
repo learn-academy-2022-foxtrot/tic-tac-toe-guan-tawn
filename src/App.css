@@ -3,3 +3,10 @@
   width: 100px;
   border: 2px solid black;
 }
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 410px;
+  margin: 0 auto;
+}
