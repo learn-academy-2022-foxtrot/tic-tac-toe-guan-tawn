@@ -24,10 +24,17 @@ When creating a project it is important to think about organization of your code
 
 - As a user, I can't click on a square that has already been marked.
 
+    - We created a conditional that checks if the square is null and if it is the gameplay function will fire, if not null, the system will alert the player to try again.
 
 - As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
+
+
 - As a user, I can't continue playing the game after the game has been won.
+
+
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
+
+
 - As a user, I can click on a restart button that will clear the game board.
 
 ### 🏔 Stretch Goals
