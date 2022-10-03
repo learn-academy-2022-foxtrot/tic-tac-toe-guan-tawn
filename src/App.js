@@ -12,8 +12,7 @@ const App = () => {
 
   const handleGamePlay = (clickSquare) => {
     let newBoard = [...square]
-     
-    //console.log(playerOne, playerTwo, "test line 0")
+
     if (playerOne) {
       newBoard[clickSquare] = true ? "X" : "O"
       setSquare(newBoard)
@@ -21,12 +20,10 @@ const App = () => {
       setPlayerOne(playerOne)
       playerTwo = true
       setPlayerTwo(playerTwo)
-  
-      //console.log(playerOne, playerTwo, "test line 1")
+
     }
     else if (playerTwo) {
-      
-      // console.log(playerOne, playerTwo,'play two')
+
       newBoard[clickSquare] = true ? "O" : "X"
       setSquare(newBoard)
       playerOne = true
@@ -38,32 +35,32 @@ const App = () => {
     else {
       return 'error'
     }
-   handleWin()
+    handleWin()
 
   }
 
 
-      const wins = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
+  const wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
 
-    let winCon = {
-      winCon1: [square[0], square[1], square[2]],
-      winCon2: [square[3], square[4], square[5]],
-      winCon3: [square[6], square[7], square[8]],
-      winCon4: [square[0], square[3], square[6]],
-      winCon5: [square[1], square[4], square[7]],
-      winCon6: [square[2], square[5], square[8]],
-      winCon7: [square[0], square[4], square[8]],
-      winCon8: [square[2], square[4], square[6]],
-    }
+  let winCon = {
+    winCon1: [square[0], square[1], square[2]],
+    winCon2: [square[3], square[4], square[5]],
+    winCon3: [square[6], square[7], square[8]],
+    winCon4: [square[0], square[3], square[6]],
+    winCon5: [square[1], square[4], square[7]],
+    winCon6: [square[2], square[5], square[8]],
+    winCon7: [square[0], square[4], square[8]],
+    winCon8: [square[2], square[4], square[6]],
+  }
 
   const handleWin = () => {
 
@@ -75,20 +72,20 @@ const App = () => {
         square[a] === square[c]
       ) {
         return square[a]
-        
+
       }
 
     }
     return null
   };
-  if(playGame){
+  if (playGame) {
 
-    if(handleWin(square) === "X"){
+    if (handleWin(square) === "X") {
       setMessage(<h1> Player One Wins X</h1>)
       setPlayGame(false)
-    } else if(handleWin(square) === "O"){
+    } else if (handleWin(square) === "O") {
       setMessage(<h1> Player Two Wins O</h1>)
-    } else if(square.indexOf(null) === -1){
+    } else if (square.indexOf(null) === -1) {
       setMessage(<h1> Draw, play again</h1>)
       setPlayGame(false)
     }
@@ -109,9 +106,9 @@ const App = () => {
       <button onClick={handleReset}>
         Reset Game
       </button>
-       {message}
+      {message}
       <div className='board'>
-       
+
         {square.map((square, index) => {
 
           return <Square
@@ -119,14 +116,10 @@ const App = () => {
             index={index}
             handleGamePlay={handleGamePlay}
             key={index}
-          // squareStyle = {squareStyle}
-          // ifClicked ={ifClicked} 
-
-
           />
         })}
 
-        
+
       </div>
     </>
   )
